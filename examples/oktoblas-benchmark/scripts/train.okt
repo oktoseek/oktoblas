@@ -1,0 +1,130 @@
+# okto_version: "1.3"
+PROJECT "oktoblas-benchmark"
+DESCRIPTION "OktoBLAS Performance Benchmark - Training with GPU Acceleration"
+VERSION "1.0.0"
+AUTHOR "OktoSeek AI"
+TAGS ["benchmark", "oktoblas", "gpu", "tensor-cores"]
+
+# Environment with OktoBLAS
+ENV {
+    accelerator: "gpu"
+    min_memory: "8GB"
+    precision: "fp16"
+    blas_backend: "oktoblas"
+    tensor_cores: "enabled"
+}
+
+# OktoBLAS Configuration
+BLAS {
+    backend: "oktoblas"
+    precision: "fp16"
+    streams: 4
+}
+
+# Accelerate GEMM and Attention
+ACCELERATE {
+    gemm: "oktoblas"
+    attention: "oktoblas"
+    fused_ops: true
+}
+
+# Tensor Cores for FP16
+TENSOR_CORES {
+    enabled: true
+    precision: "fp16"
+}
+
+# Dataset - OpenOrca subset
+DATASET {
+    train: "dataset/train.jsonl"
+    validation: "dataset/val.jsonl"
+    format: "jsonl"
+    type: "chat"
+    input_field: "question"
+    output_field: "response"
+    dataset_percent: 100
+    shuffle: true
+}
+
+# Model Configuration
+MODEL {
+    name: "oktoblas-benchmark"
+    base: "google/flan-t5-small"
+    architecture: "t5"
+    parameters: 60M
+    context_window: 512
+    precision: "fp16"
+    device: "cuda"
+}
+
+# Training with OktoBLAS acceleration
+TRAIN {
+    epochs: 3
+    batch_size: 16
+    learning_rate: 0.0001
+    optimizer: "adamw"
+    scheduler: "cosine"
+    device: "cuda"
+    gradient_accumulation: 2
+    checkpoint_steps: 500
+    checkpoint_path: "runs/oktoblas-benchmark"
+    logging_steps: 10
+    save_strategy: "epoch"
+}
+
+# Metrics to track
+METRICS {
+    loss
+    accuracy
+    perplexity
+}
+
+# Monitor training
+MONITOR {
+    metrics: ["loss", "accuracy", "perplexity"]
+    notify_if {
+        loss > 2.0
+    }
+    log_to: "runs/oktoblas-benchmark/training.log"
+    dashboard: true
+}
+
+# Control training
+CONTROL {
+    on_epoch_end {
+        SAVE model
+        LOG "Epoch completed"
+    }
+    
+    IF loss > 3.0 {
+        SET learning_rate = 0.00005
+        LOG "Reducing learning rate"
+    }
+    
+    IF loss < 0.5 {
+        LOG "Training converged!"
+    }
+}
+
+# Stability
+STABILITY {
+    stop_if_nan: true
+    stop_if_diverges: true
+    min_improvement: 0.001
+}
+
+# Export trained model
+EXPORT {
+    format: ["safetensors", "okm"]
+    path: "export/oktoblas-benchmark"
+    quantization: "fp16"
+}
+
+# Logging
+LOGGING {
+    save_logs: true
+    metrics_file: "runs/oktoblas-benchmark/metrics.json"
+    training_file: "runs/oktoblas-benchmark/training_logs.json"
+    log_level: "info"
+    log_every: 10
+}
