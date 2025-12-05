@@ -1,6 +1,10 @@
 <p align="center">
-  <img src="assets/oktoblas-logo.png" alt="OktoBLAS" width="400"/>
+  <img src="./assets/okto_logo.png" alt="OktoBlas Banner" width="50%" />
 </p>
+<p align="center">
+  <img src="./assets/okto_logo2.png" alt="OktoSeek Banner" width="50%" />
+</p>
+
 
 <h1 align="center">OktoBLAS</h1>
 
