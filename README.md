@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/okto_logo.png" alt="OktoScript Banner" width="50%" />
+  <img src="./assets/okto_logo2.png" alt="OktoScript Banner" width="50%" />
 </p>
 
 <h1 align="center">OktoBLAS</h1>
@@ -264,4 +264,5 @@ See [LICENSE](./LICENSE) for full terms.
 <p align="center">
   Made with precision by <a href="https://www.oktoseek.com"><strong>OktoSeek AI</strong></a>
 </p>
+
 
