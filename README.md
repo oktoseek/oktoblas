@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="./assets/okto_logo2.png" alt="OktoScript Banner" width="50%" />
+</p>
+
+<p align="center">
   <h1 align="center">OktoBLAS</h1>
 </p>
 
@@ -316,4 +320,5 @@ Built with ❤️ by **OktoSeek AI**.
 <p align="center">
   Made with ❤️ by the <strong>OktoSeek AI</strong> team
 </p>
+
 
