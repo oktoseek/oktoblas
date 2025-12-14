@@ -1,8 +1,5 @@
 <p align="center">
-  <img src="./assets/okto_logo.png" alt="OktoBlas Banner" width="50%" />
-</p>
-<p align="center">
-  <img src="./assets/okto_logo2.png" alt="OktoSeek Banner" width="50%" />
+  <img src="assets/oktoblas-logo.png" alt="OktoBLAS" width="400"/>
 </p>
 
 <h1 align="center">OktoBLAS</h1>
@@ -15,6 +12,7 @@
   <a href="https://pypi.org/project/oktoblas/"><img src="https://img.shields.io/pypi/v/oktoblas?color=blue&label=PyPI" alt="PyPI"></a>
   <a href="https://www.oktoseek.com/"><img src="https://img.shields.io/badge/OktoSeek-Official-orange" alt="OktoSeek"></a>
   <a href="#license"><img src="https://img.shields.io/badge/License-Proprietary-red" alt="License"></a>
+  <a href="https://doi.org/10.5281/zenodo.17932053"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17932053.svg" alt="DOI"></a>
 </p>
 
 ---
@@ -373,6 +371,14 @@ OktoBLAS is a core component of the **OktoSeek AI** platform — a complete ecos
 
 - [`examples/python/`](./examples/python/) — Python usage examples
 - [`docs/ENTERPRISE_SAVINGS.md`](./docs/ENTERPRISE_SAVINGS.md) — Energy & Cost Savings
+
+---
+
+## 📚 Zenodo Archive
+
+This repository is archived on Zenodo as scientific evidence and prior-art record:
+
+**Zenodo DOI**: [10.5281/zenodo.17932053](https://doi.org/10.5281/zenodo.17932053)
 
 ---
 
